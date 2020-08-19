@@ -1,20 +1,78 @@
+// função void
+function calcular() {
+    console.log(2*2)
+}
 
-import Jogador from './Jogador';
+// função possui a palavra return e por isso ela é uma função
+// que retorna valor
+function calc() {
+    return 3*9
+}
 
-import Tenis from './Tenis';
+// toda função que é void = undefined
+const resultado = calcular();
+console.log(resultado)
 
-// metodo estatico
-console.log(Jogador.tipoJodador())
+const resultado2 = calc();
+console.log(resultado2) 
 
-// instanciar = new Classe
-const novoJogador = new Jogador('Felipe')
+// ECMA anteriores
+const falar = function() {
+    return 'Olá mundo!'
+}
+console.log(falar())
 
-// utilizando o metodo
-novoJogador.exibirNome()
-const nome = novoJogador.exibirNomeComRetorno()
-console.log(nome)
+// ES5 e E56
+// arrow function
+const hello = () => {
+    return 'Olá mundo!'
+}
+
+console.log(hello())
+
+// parametros obrigatórios
+// parametros opcional = ?
+// sempre colocar os paremetros obrigatório primeiro
+const psg = ( jogador: string, quantidadeGol?: any) => {
+    return `O PSG fez ${quantidadeGol} gols`
+}
+console.log(psg('Neymar',3))
 
 
-const novoJogadorTenis = new Tenis('Fred')
-novoJogadorTenis.exibirNome()
-novoJogadorTenis.exibirTipo();
+//  assincrono e sincrono
+
+//  assincrono e executa varias linhas ao mesmo tempo
+//  sincrono ele executa uma linha por vez
+
+// java/node => assincro
+
+const pizza = ()=>{
+    const promise= new Promise((resolve, reject)=>{
+        setTimeout(() => {
+           resolve('Pizza Pronta');
+        },5000)
+    })
+
+    return promise
+}
+
+// .then => callback
+// sincrono
+pizza().then((resultadoPromise)=>{
+    console.log('Cliente:', resultadoPromise)
+    console.log('*********')
+}).catch((erro)=>{
+    console.log('Cliente:', erro.message)
+})
+
+// async function
+// permite utilizar o await
+// await = esperar/aguardar
+// ES5 e ES6
+const retirar = async () => {
+    const resultado = await pizza();
+    console.log('Retirar', resultado)
+}
+
+
+retirar();
